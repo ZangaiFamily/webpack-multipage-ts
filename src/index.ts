@@ -1,21 +1,18 @@
-import './assets/style.css';
+import './assets/style.css'
 
 interface IComponent {
-  name: String,
-  dom: HTMLDivElement,
-  button: HTMLButtonElement,
-  mount: Function
+  mount: (id: string) => void
 }
 
 class Component implements IComponent {
 
-  name: string
+  private name: string
 
-  dom: HTMLDivElement
+  private dom: HTMLDivElement
 
-  button: HTMLButtonElement
+  private button: HTMLButtonElement
 
-  constructor () {
+  constructor() {
     this.name = "zangai-component"
     const dom = document.createElement("div")
     dom.innerHTML = "<h2>hello zangai family</h2>"
@@ -30,10 +27,10 @@ class Component implements IComponent {
     this.dom = dom
   }
 
-  mount (id: string) {
-    document.querySelector(id).innerHTML = this.dom.outerHTML;
+  public mount(id: string): void {
+    document.querySelector(id).appendChild(this.dom)
   }
 }
 
-const app = new Component();
+const app = new Component()
 app.mount("#app")
