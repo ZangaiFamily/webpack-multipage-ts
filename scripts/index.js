@@ -1,5 +1,4 @@
 const path = require("path");
-// const assets = require('./assets');
 const loaders = require("./loaders");
 const plugins = require("./plugins");
 
@@ -26,7 +25,6 @@ module.exports = {
     minimize: false,
   },
   devServer: {
-    // color: true,
     overlay: {
       warnings: true,
       errors: true,
@@ -35,11 +33,6 @@ module.exports = {
     contentBase: path.join(__dirname, "../src"),
     compress: true,
     progress: true,
-      //quiet: true,
-    open: true,
-    // openPage: 'main.html',
-    // port: 9000,
-    // public: 'localhost:8080/main.html'
-    // open: true
+    open: true
   },
 };

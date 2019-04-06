@@ -22,15 +22,8 @@ const plugins = [
       messages: ["You application is running here http://localhost:3000"],
       notes: ["Some additionnal notes to be displayed upon successful compilation"],
     },
-    onErrors: function(severity, errors) {
-      // You can listen to errors transformed and prioritized by the plugin
-      // severity can be 'error' or 'warning'
-    },
-    // should the console be cleared between each compilation?
-    // default is true
+    onErrors: function(severity, errors) {},
     clearConsole: true,
-
-    // add formatters and transformers (see below)
     additionalFormatters: [],
     additionalTransformers: [],
   }),
