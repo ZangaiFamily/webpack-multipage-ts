@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const TSLintPlugin = require("tslint-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 const plugins = [
@@ -27,6 +28,10 @@ const plugins = [
     additionalFormatters: [],
     additionalTransformers: [],
   }),
+  new MiniCssExtractPlugin({
+    filename: "[name].[hash].scss",
+    chunkFilename: "[id].css"
+  })
 ];
 
 module.exports = plugins;

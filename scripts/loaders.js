@@ -1,18 +1,32 @@
 const path = require("path");
 
+const env = process.env;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const tsLoader = {
   test: /\.tsx?$/,
   use: "ts-loader",
   exclude: /node_modules/,
 };
 
+const styleLoader = env.NODE_ENV !== 'production' ? "style-loader" : MiniCssExtractPlugin.loader;
+
 const cssLoader = {
   test: /\.css$/,
   use: [
-    "style-loader",
+    styleLoader,
     "css-loader",
   ],
 };
+
+const scssLoader = {
+  test: /\.scss$/,
+  use: [
+    styleLoader,
+    "css-loader",
+    "sass-loader"
+  ]
+}
 
 const fileLoader = {
   test: /\.(png|svg|jpg|gif)$/,
@@ -39,8 +53,9 @@ module.exports = {
   rules: [
     tsLoader,
     cssLoader,
+    scssLoader,
     fileLoader,
     fontLoader,
-    tsLintLoader,
+    tsLintLoader
   ],
 };

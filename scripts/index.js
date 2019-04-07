@@ -2,12 +2,7 @@ const path = require("path");
 const loaders = require("./loaders");
 const plugins = require("./plugins");
 
-const env = process.env.NODE_ENV;
-
-const mode = env === "development" ? "development" : "production";
-
 module.exports = {
-  mode,
   entry: {
     index: "./src/index.ts",
   },
